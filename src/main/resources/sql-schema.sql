@@ -1,6 +1,5 @@
 use ims;
 
-
 CREATE TABLE IF NOT EXISTS `customers` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
     `first_name` VARCHAR(40) DEFAULT NULL,
@@ -9,27 +8,27 @@ CREATE TABLE IF NOT EXISTS `customers` (
 );
 
 create table if not exists `items` (
-`Item_No` int(11) not null auto_increment,
-`Item Name` varchar(40) default null,
-`Item Price` double null default null,
-Primary Key (Item_No)
+`ItemID` int(11) not null auto_increment,
+`Item` varchar(40) default null,
+`Price` double null default null,
+Primary Key (ItemID)
 
 );
 
 create table if not exists `orders` (
-`Order_No` int (11) not null auto_increment,
-fk_id int not null,
-Primary Key (Order_no),
-foreign key (fk_id) references customers(id)
+`OrderNum` int (11) unique not null auto_increment,
+id int (11) null default null,
+Primary Key (OrderNum),
+foreign key (id) references customers(id)
 );
 
 create table if not exists `orders_items` (
-`Order_Items_ID` int (11) not null auto_increment,
-fk_Order_No int not null,
-fk_Item_No int not null,
-`Price` double null default null,
-`Quantity` int(11) not null,
-foreign key (fk_Order_No) references orders(Order_No),
-foreign key (fk_Item_No) references items(Item_No),
+`Order_Items_ID` int (11) unique not null auto_increment,
+OrderNum int (11) not null,
+ItemID int (11) not null,
+`Total` double null default null,
+`Quantity` int (11) not null,
+foreign key (OrderNum) references orders(OrderNum),
+foreign key (ItemID) references items(ItemID),
 Primary Key (Order_Items_ID)
 );
