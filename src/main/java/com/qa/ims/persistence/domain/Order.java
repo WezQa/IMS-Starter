@@ -2,27 +2,54 @@ package com.qa.ims.persistence.domain;
 
 public class Order {
 
-	private Long Order_No;
+	private Long OrderNum;
+	private Long id;
 
-	public Long getOrder_No() {
-		return Order_No;
+	public Order(Long id, Long OrderNum) {
+		super();
+		this.id = id;
+		this.OrderNum = OrderNum;
 	}
 
-	public void setOrder_No(Long order_No) {
-		Order_No = order_No;
+	/**
+	 * @return the orderNum
+	 */
+	public Long getOrderNum() {
+		return OrderNum;
+	}
+
+	/**
+	 * @param orderNum the orderNum to set
+	 */
+	public void setOrderNum(Long orderNum) {
+		OrderNum = orderNum;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	@Override
 	public String toString() {
-		return "Order [Order_No=" + Order_No + ", getOrder_No()=" + getOrder_No() + ", getClass()=" + getClass()
-				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+		return "Order [OrderNum=" + OrderNum + ", id=" + id + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Order_No == null) ? 0 : Order_No.hashCode());
+		result = prime * result + ((OrderNum == null) ? 0 : OrderNum.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -32,18 +59,16 @@ public class Order {
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
 		Order other = (Order) obj;
-		if (getOrder_No() == null) {
-			if (other.getOrder_No() != null)
+		if (getOrderNum() == null) {
+			if (other.getOrderNum() != null)
 				return false;
-		} else if (!getOrder_No().equals(other.getOrder_No()))
+		} else if (!getOrderNum().equals(other.getOrderNum()))
 			return false;
-		if (Order_No == null) {
-			if (other.Order_No != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!Order_No.equals(other.Order_No))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
