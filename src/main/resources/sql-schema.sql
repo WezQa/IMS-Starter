@@ -27,7 +27,7 @@ create table if not exists `orders_items` (
 OrderNum int (11) not null,
 ItemID int (11) not null,
 `Total` double null default null,
-`Quantity` int (11) not null,
+`Quantity` double null default null,
 foreign key (OrderNum) references orders(OrderNum),
 foreign key (ItemID) references items(ItemID),
 Primary Key (Order_Items_ID)
