@@ -1,3 +1,4 @@
+
 package com.qa.ims.controllers;
 
 import static org.junit.Assert.assertEquals;
@@ -12,29 +13,29 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import com.qa.ims.controller.CustomerController;
-import com.qa.ims.persistence.dao.CustomerDAO;
-import com.qa.ims.persistence.domain.Customer;
+import com.qa.ims.controller.ItemController;
+import com.qa.ims.persistence.dao.ItemsDAO;
+import com.qa.ims.persistence.domain.Item;
 import com.qa.ims.utils.Utils;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CustomerControllerTest {
+public class ItemControllerTest {
 
 	@Mock
 	private Utils utils;
 
 	@Mock
-	private CustomerDAO dao;
+	private ItemsDAO dao;
 
 	@InjectMocks
-	private CustomerController controller;
+	private ItemController controller;
 
 	@Test
 	public void testCreate() {
-		final String F_NAME = "barry", L_NAME = "scott";
-		final Customer created = new Customer(F_NAME, L_NAME);
+		final String Item = "Sock", Price = "30";
+		final Item created = new Item(Item, Price);
 
-		Mockito.when(utils.getString()).thenReturn(F_NAME, L_NAME);
+		Mockito.when(utils.getString()).thenReturn(Item, Price);
 		Mockito.when(dao.create(created)).thenReturn(created);
 
 		assertEquals(created, controller.create());
@@ -45,22 +46,22 @@ public class CustomerControllerTest {
 
 	@Test
 	public void testReadAll() {
-		List<Customer> customers = new ArrayList<>();
-		customers.add(new Customer(1L, "jordan", "harrison"));
+		List<Item> items = new ArrayList<>();
+		items.add(new Item(1L, "jordan", "harrison"));
 
-		Mockito.when(dao.readAll()).thenReturn(customers);
+		Mockito.when(dao.readAll()).thenReturn(items);
 
-		assertEquals(customers, controller.readAll());
+		assertEquals(items, controller.readAll());
 
 		Mockito.verify(dao, Mockito.times(1)).readAll();
 	}
 
 	@Test
 	public void testUpdate() {
-		Customer updated = new Customer(1L, "chris", "perrins");
+		Item updated = new Item(28L, "Shirt", "99");
 
-		Mockito.when(this.utils.getLong()).thenReturn(1L);
-		Mockito.when(this.utils.getString()).thenReturn(updated.getFirstName(), updated.getSurname());
+		Mockito.when(this.utils.getLong()).thenReturn(28L);
+		Mockito.when(this.utils.getString()).thenReturn(updated.getItem(), updated.getPrice());
 		Mockito.when(this.dao.update(updated)).thenReturn(updated);
 
 		assertEquals(updated, this.controller.update());
@@ -72,15 +73,15 @@ public class CustomerControllerTest {
 
 	@Test
 	public void testDelete() {
-		final long ID = 1L;
+		final long ItemID = 22L;
 
-		Mockito.when(utils.getLong()).thenReturn(ID);
-		Mockito.when(dao.delete(ID)).thenReturn(1);
+		Mockito.when(utils.getLong()).thenReturn(ItemID);
+		Mockito.when(dao.delete(ItemID)).thenReturn(1);
 
-		assertEquals(1L, this.controller.delete());
+		assertEquals(22L, this.controller.delete());
 
 		Mockito.verify(utils, Mockito.times(1)).getLong();
-		Mockito.verify(dao, Mockito.times(1)).delete(ID);
+		Mockito.verify(dao, Mockito.times(1)).delete(ItemID);
 	}
 
 }
