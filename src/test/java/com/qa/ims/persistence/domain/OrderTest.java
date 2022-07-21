@@ -4,21 +4,13 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import nl.jqno.equalsverifier.EqualsVerifier;
-
-public class CustomerTest {
+public class OrderTest {
 
 	@Test
 	public void test() {
 		JunitTesting test = new JunitTesting();
-		long id = test.id(10);
-		assertEquals(10, id);
-		
+		long OrderNum = test.OrderNum(10);
+		assertEquals(10, OrderNum);
+
 	}
-
-	
-
-	
-	
-	
 }

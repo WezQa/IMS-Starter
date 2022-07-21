@@ -7,18 +7,20 @@ import org.junit.Test;
 
 import com.qa.ims.utils.DBUtils;
 
-public class CustomerDAOTest {
+public class OrdersDAOTest {
 
-	private final CustomerDAO DAO = new CustomerDAO();
+	private final OrdersDAO DAO = new OrdersDAO();
 
 	@Before
 	public void setup() {
 		DBUtils.connect();
-		DBUtils.getInstance().init("src/test/resources/sql-schema.sql", "src/test/resources/sql-data.sql");
+		DBUtils.getInstance().init("src/test/resources/sql-schema.sql", "src/test/resources/sql-dataitem.sql");
+
 	}
 
 	@Test
-	public void testDelete() {
+	public void testDeleteItem() {
 		assertEquals(1, DAO.delete(1));
 	}
+
 }
