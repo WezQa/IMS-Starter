@@ -59,15 +59,15 @@ public class OrdersItemControllerTest {
 
 	@Test
 	public void testUpdate() {
-		OrdersItem updated = new OrdersItem(1L, 1L, 1L, 19.99, 9);
+		OrdersItem updated = new OrdersItem(2L, 2L, 2L, 29.99, 29);
 
-		Mockito.when(this.utils.getLong()).thenReturn(1L, 1L, 1L);
+		Mockito.when(this.utils.getLong()).thenReturn(2L, 2L, 2L);
 		Mockito.when(this.utils.getDouble()).thenReturn(updated.getTotal(), updated.getQuantity());
 		Mockito.when(this.dao.update(updated)).thenReturn(updated);
 
 		assertEquals(updated, this.controller.update());
 
-		Mockito.verify(this.utils, Mockito.times(1)).getLong();
+		Mockito.verify(this.utils, Mockito.times(3)).getLong();
 		Mockito.verify(this.utils, Mockito.times(2)).getDouble();
 		Mockito.verify(this.dao, Mockito.times(1)).update(updated);
 	}
