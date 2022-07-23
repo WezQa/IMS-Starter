@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.qa.ims.persistence.domain.Customer;
 import com.qa.ims.utils.DBUtils;
 
 public class CustomerDAOTest {
@@ -18,7 +19,26 @@ public class CustomerDAOTest {
 	}
 
 	@Test
+	public void testCreate() {
+		final Customer created = new Customer(4L, "Chris", "Redfield");
+		assertEquals(created, DAO.create(created));
+	}
+
+	@Test
+	public void testRead() {
+		final long id = 1L;
+		assertEquals(new Customer(id, "Chris", "Redfield"), DAO.read(id));
+	}
+
+	@Test
+	public void testUpdate() {
+		final Customer updated = new Customer(6L, "Chris", "Redfield");
+		assertEquals(updated, DAO.update(updated));
+	}
+
+	@Test
 	public void testDelete() {
 		assertEquals(1, DAO.delete(1));
 	}
+
 }
