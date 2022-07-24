@@ -18,7 +18,7 @@ public class OrdersItemTest {
 	@Test
 	public void testgetOrder_Items_ID() {
 		OrdersItem ordersitem = new OrdersItem(0, 0, 0, 0);
-		ordersitem.getOrder_Items_ID(1);
+		ordersitem.getOrder_Items_ID();
 		assertTrue(ordersitem.getOrder_Items_ID() == 1);
 
 	}
@@ -26,7 +26,7 @@ public class OrdersItemTest {
 	@Test
 	public void testgetOrderNum() {
 		OrdersItem ordersitem = new OrdersItem(0, 0, 0, 0);
-		ordersitem.getOrderNum(1);
+		ordersitem.getOrderNum();
 		assertTrue(ordersitem.getOrderNum() == 1);
 
 	}
@@ -34,7 +34,7 @@ public class OrdersItemTest {
 	@Test
 	public void testgetItemID() {
 		OrdersItem ordersitem = new OrdersItem(0, 0, 0, 0);
-		ordersitem.getItemID(1);
+		ordersitem.getItemID();
 		assertTrue(ordersitem.getItemID() == 1);
 
 	}
@@ -42,7 +42,7 @@ public class OrdersItemTest {
 	@Test
 	public void testgetTotal() {
 		OrdersItem ordersitem = new OrdersItem(0, 0, 0, 0);
-		ordersitem.getTotal(1);
+		ordersitem.getTotal();
 		assertTrue(ordersitem.getTotal() == 1);
 
 	}
@@ -50,7 +50,7 @@ public class OrdersItemTest {
 	@Test
 	public void testgetQuantity() {
 		OrdersItem ordersitem = new OrdersItem(0, 0, 0, 0);
-		ordersitem.getQuantity(1);
+		ordersitem.getQuantity();
 		assertTrue(ordersitem.getQuantity() == 1);
 	}
 
@@ -58,7 +58,7 @@ public class OrdersItemTest {
 	public void testsetOrder_Items_ID() {
 		OrdersItem ordersitem = new OrdersItem(0, 0, 0, 0);
 		ordersitem.setOrder_Items_ID(1);
-		assertTrue(ordersitem.setOrder_Items_ID() == 1);
+		assertTrue(ordersitem.setOrder_Items_ID(1));
 
 	}
 
@@ -93,4 +93,12 @@ public class OrdersItemTest {
 		assertTrue(ordersitem.setQuantity() == 1);
 	}
 
+	@Test
+	public void testHashcode() {
+
+		System.out.println("Inside testNullHashCode()");
+
+		assertEquals(0, hashCode());
+
+	}
 }

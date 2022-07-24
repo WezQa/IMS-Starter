@@ -2,6 +2,9 @@ package com.qa.ims.persistence.dao;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -40,6 +43,18 @@ public class OrdersDAOTest {
 	@Test
 	public void testDelete() {
 		assertEquals(1, DAO.delete(1));
+	}
+
+	@Test
+	public void testReadAll() {
+		List<Order> expected = new ArrayList<>();
+		expected.add(new Order(4L, 4L));
+		assertEquals(expected, DAO.readAll());
+	}
+
+	@Test
+	public void testReadLatest() {
+		assertEquals(new Order(4L, 4L), DAO.readLatest());
 	}
 
 }

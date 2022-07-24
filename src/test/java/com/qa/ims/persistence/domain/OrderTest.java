@@ -43,4 +43,12 @@ public class OrderTest {
 		assertTrue(order.setId() == 1L);
 	}
 
+	@Test
+	public void testHashcode() {
+
+		System.out.println("Inside testNullHashCode()");
+
+		assertEquals(0, hashCode());
+
+	}
 }
