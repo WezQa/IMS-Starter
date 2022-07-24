@@ -1,4 +1,4 @@
-Coverage: 66.7%
+Coverage: 62.1%
 IMS Starter
 
 I was given the task to create a Inventory Manangement System, which a user would interact with using a Command-Line Interface (CLI).  The user would require CRUD functionality over serval fields including, Customers, Orders and Items.
