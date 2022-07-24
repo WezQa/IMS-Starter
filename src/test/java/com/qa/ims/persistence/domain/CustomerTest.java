@@ -58,4 +58,13 @@ public class CustomerTest {
 		customer.setSurname("Smith");
 		assertTrue(customer.setSurname() == "Smith");
 	}
+
+	@Test
+	public void testHashcode() {
+
+		System.out.println("Inside testNullHashCode()");
+
+		assertEquals(0, hashCode());
+
+	}
 }

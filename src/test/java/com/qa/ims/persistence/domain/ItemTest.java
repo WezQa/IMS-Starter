@@ -81,4 +81,14 @@ public class ItemTest {
 		assertTrue(item.setPrice() == "99");
 	}
 
+	@Test
+
+	public void testHashcode() {
+
+		System.out.println("Inside testNullHashCode()");
+
+		assertEquals(0, hashCode());
+
+	}
+
 }
